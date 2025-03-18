@@ -1,0 +1,4 @@
+username, chat_text, message_content
+john_doe, General Chat, Hello, world!
+jane_smith, Tech Chat, How's the API?
+john_doe, General Chat, Working on the backend

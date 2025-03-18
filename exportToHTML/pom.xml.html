@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>pom.xml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #6aab73;}
+.s3 { color: #bcbec4;}
+.s4 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+pom.xml</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;project </span><span class="s1">xmlns</span><span class="s2">=&quot;http://maven.apache.org/POM/4.0.0&quot; </span><span class="s1">xmlns:xsi</span><span class="s2">=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+		 <span class="s1">xsi:schemaLocation</span><span class="s2">=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;modelVersion&gt;</span><span class="s3">4.0.0</span><span class="s0">&lt;/modelVersion&gt;</span>
+
+	<span class="s0">&lt;parent&gt;</span>
+		<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+		<span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-starter-parent</span><span class="s0">&lt;/artifactId&gt;</span>
+		<span class="s0">&lt;version&gt;</span><span class="s3">2.7.6</span><span class="s0">&lt;/version&gt; </span><span class="s4">&lt;!-- Make sure Spring Boot is compatible with Spring 5.3.x --&gt;</span>
+		<span class="s0">&lt;relativePath/&gt;</span>
+	<span class="s0">&lt;/parent&gt;</span>
+
+	<span class="s0">&lt;groupId&gt;</span><span class="s3">Spring.Boot</span><span class="s0">&lt;/groupId&gt;</span>
+	<span class="s0">&lt;artifactId&gt;</span><span class="s3">Telegram</span><span class="s0">&lt;/artifactId&gt;</span>
+	<span class="s0">&lt;version&gt;</span><span class="s3">0.0.1-SNAPSHOT</span><span class="s0">&lt;/version&gt;</span>
+	<span class="s0">&lt;name&gt;</span><span class="s3">Telegram</span><span class="s0">&lt;/name&gt;</span>
+	<span class="s0">&lt;description&gt;</span><span class="s3">Telegram project using Spring Boot</span><span class="s0">&lt;/description&gt;</span>
+
+	<span class="s0">&lt;properties&gt;</span>
+		<span class="s0">&lt;java.version&gt;</span><span class="s3">17</span><span class="s0">&lt;/java.version&gt;</span>
+	<span class="s0">&lt;/properties&gt;</span>
+
+	<span class="s0">&lt;dependencies&gt;</span>
+		<span class="s4">&lt;!-- Spring Boot Dependencies --&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-starter-data-jpa</span><span class="s0">&lt;/artifactId&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-starter-web</span><span class="s0">&lt;/artifactId&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-starter-validation</span><span class="s0">&lt;/artifactId&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-starter-test</span><span class="s0">&lt;/artifactId&gt;</span>
+			<span class="s0">&lt;scope&gt;</span><span class="s3">test</span><span class="s0">&lt;/scope&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-devtools</span><span class="s0">&lt;/artifactId&gt;</span>
+			<span class="s0">&lt;scope&gt;</span><span class="s3">runtime</span><span class="s0">&lt;/scope&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+
+		<span class="s4">&lt;!-- PostgreSQL Driver --&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.postgresql</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">postgresql</span><span class="s0">&lt;/artifactId&gt;</span>
+			<span class="s0">&lt;version&gt;</span><span class="s3">42.7.5</span><span class="s0">&lt;/version&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+
+		<span class="s4">&lt;!-- Lombok (Optional for reducing boilerplate code) --&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.projectlombok</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">lombok</span><span class="s0">&lt;/artifactId&gt;</span>
+			<span class="s0">&lt;optional&gt;</span><span class="s3">true</span><span class="s0">&lt;/optional&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+
+		<span class="s4">&lt;!-- Springdoc for OpenAPI and Swagger UI --&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springdoc</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">springdoc-openapi-starter-webmvc-ui</span><span class="s0">&lt;/artifactId&gt;</span>
+			<span class="s0">&lt;version&gt;</span><span class="s3">2.8.5</span><span class="s0">&lt;/version&gt; </span><span class="s4">&lt;!-- Ensure this version is compatible with Spring Boot 2.7.x --&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+
+		<span class="s4">&lt;!-- H2 Database (for testing purposes) --&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">com.h2database</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">h2</span><span class="s0">&lt;/artifactId&gt;</span>
+			<span class="s0">&lt;version&gt;</span><span class="s3">1.4.200</span><span class="s0">&lt;/version&gt;</span>
+			<span class="s0">&lt;scope&gt;</span><span class="s3">runtime</span><span class="s0">&lt;/scope&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+
+		<span class="s4">&lt;!-- Jakarta Annotation API (for annotations) --&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">jakarta.annotation</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">jakarta.annotation-api</span><span class="s0">&lt;/artifactId&gt;</span>
+			<span class="s0">&lt;version&gt;</span><span class="s3">2.1.0</span><span class="s0">&lt;/version&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-starter-web</span><span class="s0">&lt;/artifactId&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-starter-web</span><span class="s0">&lt;/artifactId&gt;</span>
+			<span class="s0">&lt;version&gt;</span><span class="s3">2.7.6</span><span class="s0">&lt;/version&gt; </span><span class="s4">&lt;!-- версия соответствует твоей --&gt;</span>
+		<span class="s0">&lt;/dependency&gt;&lt;dependency&gt;</span>
+		<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springdoc</span><span class="s0">&lt;/groupId&gt;</span>
+		<span class="s0">&lt;artifactId&gt;</span><span class="s3">springdoc-openapi-ui</span><span class="s0">&lt;/artifactId&gt;</span>
+		<span class="s0">&lt;version&gt;</span><span class="s3">1.6.6</span><span class="s0">&lt;/version&gt; </span><span class="s4">&lt;!-- Проверь, чтобы версия была актуальной --&gt;</span>
+	<span class="s0">&lt;/dependency&gt;</span>
+
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springdoc</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">springdoc-openapi-ui</span><span class="s0">&lt;/artifactId&gt;</span>
+			<span class="s0">&lt;version&gt;</span><span class="s3">1.6.9</span><span class="s0">&lt;/version&gt; </span><span class="s4">&lt;!-- Check the latest version --&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+
+		<span class="s4">&lt;!-- Commons CSV (for CSV file handling) --&gt;</span>
+		<span class="s0">&lt;dependency&gt;</span>
+			<span class="s0">&lt;groupId&gt;</span><span class="s3">org.apache.commons</span><span class="s0">&lt;/groupId&gt;</span>
+			<span class="s0">&lt;artifactId&gt;</span><span class="s3">commons-csv</span><span class="s0">&lt;/artifactId&gt;</span>
+			<span class="s0">&lt;version&gt;</span><span class="s3">1.10.0</span><span class="s0">&lt;/version&gt;</span>
+		<span class="s0">&lt;/dependency&gt;</span>
+	<span class="s0">&lt;/dependencies&gt;</span>
+
+	<span class="s0">&lt;build&gt;</span>
+		<span class="s0">&lt;plugins&gt;</span>
+			<span class="s4">&lt;!-- Compiler Plugin for Lombok --&gt;</span>
+			<span class="s0">&lt;plugin&gt;</span>
+				<span class="s0">&lt;groupId&gt;</span><span class="s3">org.apache.maven.plugins</span><span class="s0">&lt;/groupId&gt;</span>
+				<span class="s0">&lt;artifactId&gt;</span><span class="s3">maven-compiler-plugin</span><span class="s0">&lt;/artifactId&gt;</span>
+				<span class="s0">&lt;configuration&gt;</span>
+					<span class="s0">&lt;annotationProcessorPaths&gt;</span>
+						<span class="s0">&lt;path&gt;</span>
+							<span class="s0">&lt;groupId&gt;</span><span class="s3">org.projectlombok</span><span class="s0">&lt;/groupId&gt;</span>
+							<span class="s0">&lt;artifactId&gt;</span><span class="s3">lombok</span><span class="s0">&lt;/artifactId&gt;</span>
+						<span class="s0">&lt;/path&gt;</span>
+					<span class="s0">&lt;/annotationProcessorPaths&gt;</span>
+				<span class="s0">&lt;/configuration&gt;</span>
+			<span class="s0">&lt;/plugin&gt;</span>
+
+			<span class="s4">&lt;!-- Spring Boot Maven Plugin --&gt;</span>
+			<span class="s0">&lt;plugin&gt;</span>
+				<span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+				<span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-maven-plugin</span><span class="s0">&lt;/artifactId&gt;</span>
+			<span class="s0">&lt;/plugin&gt;</span>
+		<span class="s0">&lt;/plugins&gt;</span>
+	<span class="s0">&lt;/build&gt;</span>
+<span class="s0">&lt;/project&gt;</span>
+</pre>
+</body>
+</html>
