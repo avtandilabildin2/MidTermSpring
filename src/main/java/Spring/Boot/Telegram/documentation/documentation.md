@@ -1,84 +1,167 @@
-**Software Requirements Specification (SRS) for Telegram Contacts Management System**
+Software Requirements Specification (SRS) for Telegram Messaging and User Management System
+1. Introduction
+   1.1 Purpose
 
-## 1. Introduction
-### 1.1 Purpose
-The purpose of this document is to define the requirements for a Telegram contacts management system. This application was initially developed using Java with an in-memory `ArrayList` for data storage, but it will now be rewritten using the **Spring Framework** with **PostgreSQL** as the primary database. The system will allow users to manage their Telegram contacts efficiently.
+The purpose of this document is to define the functional and non-functional requirements of a Telegram-inspired messaging and user management system. This system enables basic operations on users and their messages through a RESTful API built using Spring Boot, with data persistence in PostgreSQL.
+1.2 Scope
 
-### 1.2 Scope
-The application will provide:
-- Contact management (adding, updating, deleting, and listing contacts)
-- Search functionality for contacts
-- Data persistence using PostgreSQL (H2 for development)
-- RESTful API for interacting with contacts
-- Basic validation and exception handling
+The system provides:
 
-### 1.3 Intended Audience and Usage
-This document is intended for developers and testers involved in building the Spring-based application.
+    User management (creation, retrieval, deletion)
 
----
-## 2. Functional Requirements
+    Message management (creation, retrieval, deletion)
 
-### 2.1 Contact Management
-- **Add a new contact** (name, username, phone number, etc.)
-- **Update an existing contact**
-- **Delete a contact**
-- **List all contacts**
-- **Search contacts by name or username**
+    RESTful API for interaction with both users and messages
 
-### 2.2 API Endpoints
-- Provide RESTful endpoints for managing contacts (CRUD operations)
-- Use **DTOs** for data transfer
-- Implement **unit tests** for controllers and services
+    Authentication for selected endpoints
 
----
-## 3. Non-Functional Requirements
+    DTO usage for API communication
 
-- **Performance:** Should handle multiple requests efficiently.
-- **Scalability:** Should support a growing number of contacts.
-- **Security:** Ensure proper data validation and exception handling.
-- **Maintainability:** Code should follow best practices for easy updates.
+    Basic validation and error handling
 
----
-## 4. Data Model
-### Entities:
-- **Contact** (ID, Name, Username, PhoneNumber, CreatedAt, UpdatedAt)
+1.3 Intended Audience and Usage
 
-### Relationships:
-- The system manages multiple **Contacts** stored in a PostgreSQL database.
+This document is intended for developers, testers, and system architects involved in the development, testing, and maintenance of this application.
+2. Functional Requirements
+   2.1 User Management
 
----
-## 5. Use Cases
+   Create a new user
 
-### Use Case 1: Adding a Contact
-- **Actor:** User
-- **Description:** The user adds a new contact to the database.
-- **Precondition:** Valid data (name, username, phone number) must be provided.
-- **Postcondition:** Contact is stored in the database.
+   Retrieve all users
 
-### Use Case 2: Searching for a Contact
-- **Actor:** User
-- **Description:** The user searches for a contact by name or username.
-- **Precondition:** At least one contact exists in the system.
-- **Postcondition:** Relevant contacts are returned.
+   Retrieve user by ID (requires authentication)
 
-### Use Case 3: Deleting a Contact
-- **Actor:** User
-- **Description:** The user deletes a contact from the database.
-- **Precondition:** The contact must exist.
-- **Postcondition:** Contact is removed from the database.
+   Delete user by ID
 
----
-## 6. Assumptions and Constraints
-- The system only manages contacts (not messages or chat history).
-- PostgreSQL is used in production, H2 for development.
-- REST API will be documented using **Swagger/OpenAPI**.
+2.2 Message Management
 
----
-## 7. Future Enhancements
-- Adding authentication for users.
-- Implementing integration with Telegram API.
-- Supporting additional contact fields like profile pictures and status.
+    Create a new message
 
----
-This document serves as the foundation for implementing the Telegram contacts management system using **Spring Framework** and **PostgreSQL**.
+    Retrieve all messages
 
+    Retrieve message by ID (requires authentication)
+
+    Delete message by ID
+
+2.3 API Endpoints
+Message Endpoints (/api/messages)
+
+    GET /get-all-messages – List all messages
+
+    GET /get-message-by-id/{id} – Get a message by ID (authenticated)
+
+    POST /create-message – Create a new message
+
+    DELETE /delete-message/{id} – Delete a message by ID
+
+User Endpoints (/api/users)
+
+    GET /get-all – List all users
+
+    GET /get-by-id/{id} – Get a user by ID (authenticated)
+
+    POST /create-user – Create a new user
+
+    DELETE /delete-by-id/{id} – Delete a user by ID
+
+3. Non-Functional Requirements
+
+   Security: Endpoints for retrieving a single user or message require authentication.
+
+   Performance: The system should be able to handle at least 100 concurrent API requests.
+
+   Maintainability: The code should follow clean architecture principles, using DTOs and services.
+
+   Scalability: The system should be extendable to include features like role-based access or message grouping.
+
+   Documentation: The API will be documented using Swagger/OpenAPI for easy exploration and testing.
+
+4. Data Model
+   Entities
+   User
+
+   id: Long
+
+   username: String
+
+   email: String
+
+   (Possibly password – if authentication is expanded)
+
+Message
+
+    id: Long
+
+    text: String
+
+    userId: Long (relation to User)
+
+5. Use Cases
+   Use Case 1: Creating a User
+
+   Actor: Admin or public client
+
+   Description: Sends a request to create a new user with required details.
+
+   Postcondition: User is saved to the database.
+
+Use Case 2: Fetching All Messages
+
+    Actor: Any client
+
+    Description: The client retrieves a list of all messages.
+
+    Postcondition: A list of messages is returned.
+
+Use Case 3: Authenticated Access to a Specific Message
+
+    Actor: Authenticated user
+
+    Description: Fetches a specific message by ID.
+
+    Postcondition: Returns the message or 404 if not found.
+
+Use Case 4: Deleting a User
+
+    Actor: Admin or system client
+
+    Description: Deletes a user from the system.
+
+    Postcondition: User is removed from the database.
+
+6. Assumptions and Constraints
+
+   No user roles are implemented at this stage (e.g., admin vs. regular user).
+
+   No integration with external Telegram API.
+
+   The application runs locally with H2 for development and PostgreSQL for production.
+
+   Authentication is assumed to be in place but is limited to basic checks (@PreAuthorize).
+
+7. Future Enhancements
+
+   Add role-based access control (RBAC)
+
+   Include authentication with JWT
+
+   Support for updating users and messages
+
+   Implement pagination and filtering
+
+   Integration with actual Telegram Bot API
+
+   Add message timestamps and status fields
+
+8. Glossary
+
+   DTO: Data Transfer Object – simplifies communication between client and server.
+
+   Spring Boot: Framework for building Java web apps.
+
+   PostgreSQL: Relational database for storing application data.
+
+   Swagger/OpenAPI: Tool for documenting RESTful APIs.
+
+Хочешь, я теперь сделаю отдельную версию этого файла в .docx, .pdf или .md формате?
+You said:

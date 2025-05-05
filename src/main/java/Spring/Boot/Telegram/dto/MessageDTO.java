@@ -11,7 +11,7 @@ public class MessageDTO {
         this.content = content;
     }
 
-    // Constructor
+
     public MessageDTO(Long id, String content, Long userId, Long chatId) {
         this.id = id;
         this.content = content;
@@ -19,7 +19,7 @@ public class MessageDTO {
         this.chatId = chatId;
     }
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

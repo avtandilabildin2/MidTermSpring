@@ -2,9 +2,10 @@ package Spring.Boot.Telegram.entities;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
-
+@Data
 @Entity
 @Table(name = "users")
 public class User {
@@ -14,6 +15,16 @@ public class User {
     private Long id;
 
     private String username;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private String password;
 
     @ManyToMany(mappedBy = "users")
     private List<Chat> chats;
